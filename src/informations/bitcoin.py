@@ -7,9 +7,12 @@ from datetime import datetime
 class Bitcoin:
 
   def get(self, sleep, lcd):
-    response = requests.get('https://api.coindesk.com/v1/bpi/currentprice.json')
-    data = response.json()
-    btc = data["bpi"]["USD"]["rate"]
+    try:  
+      response = requests.get('https://api.coindesk.com/v1/bpi/currentprice.json')
+      data = response.json()
+      btc = data["bpi"]["USD"]["rate"]
+    except Exception as e:
+      btc = "###########"
 
     lcd.clear()
     lcd.write_string("BTC")

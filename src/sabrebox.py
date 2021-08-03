@@ -16,7 +16,6 @@ class Informations(Enum):
   BTC = Bitcoin()
   IP = Ip()
   DAY = DayPercentage()
-  MESSAGE = Message()
 
 while(True):
   for info in Informations:
