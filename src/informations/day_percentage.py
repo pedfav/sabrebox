@@ -13,6 +13,6 @@ class DayPercentage:
     lcd.clear()
     lcd.write_string(now.strftime("%d/%m/%Y %H:%M"))
     lcd.cursor_pos=(1,0)
-    lcd.write_string(f"Day percentage={day_percentage}%")
+    lcd.write_string(f"Day percent={day_percentage}%")
     print(f"Day percentage = {day_percentage}%");
     dwight.sleep(sleep)

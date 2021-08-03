@@ -14,7 +14,7 @@ class Weather:
     lcd.clear()
 
     if humidity is not None and temperature is not None:
-      lcd.write_string(f"Temperature={round(temperature, 2)}")
+      lcd.write_string(f"Temp    ={round(temperature, 2)}")
       lcd.cursor_pos=(1,0)
       lcd.write_string(f"Humidity={round(humidity, 2)}")
       print(f"Temperature={round(temperature, 2)} - Humidity={round(humidity, 2)}")
