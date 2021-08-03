@@ -16,4 +16,5 @@ class Informations(Enum):
 
 while(True):
   for info in Informations:
+    print(info)
     print(info.value.get(4, lcd))
