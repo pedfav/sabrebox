@@ -1,4 +1,5 @@
-from datetime import datetime, date, time
+import time
+from datetime import datetime, date
 
 class DayPercentage:
 
