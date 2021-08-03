@@ -16,5 +16,5 @@ class Bitcoin:
     lcd.write_string(now)
     lcd.cursor_pos=(1,0)
     lcd.write_string(f"BTC={btc}")
-    print(f"BTC={btc}")
+    print(f"BTC=${btc}")
     time.sleep(sleep)

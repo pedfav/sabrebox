@@ -11,13 +11,12 @@ class Weather:
 
   def get(self, sleep, lcd):
     humidity, temperature = Adafruit_DHT.read_retry(DHT_SENSOR, DHT_PIN)
-    now = datetime.now().strftime("%d/%m/%Y %H:%M")
     lcd.clear()
 
     if humidity is not None and temperature is not None:
-      lcd.write_string(now)
+      lcd.write_string(f"Temperature={round(temperature, 2)}"")
       lcd.cursor_pos=(1,0)
-      lcd.write_string(f"T={round(temperature, 2)} - H={round(humidity, 2)}")
+      lcd.write_string(f"Humidity={round(humidity, 2)}")
       print(f"Time={now} - Temperature={round(temperature, 2)} - Humidity={round(humidity, 2)}")
     else:
       lcd.write_string("DHT22 not workin")
