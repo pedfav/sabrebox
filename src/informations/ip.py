@@ -12,7 +12,7 @@ class Ip:
     lcd.clear()
     lcd.write_string("IP")
     lcd.cursor_pos=(1,0)
-    lcd.write_string(s.getsockname()[0]})
+    lcd.write_string(s.getsockname()[0])
     print(f"IP={s.getsockname()[0]}")
 
     time.sleep(sleep)
