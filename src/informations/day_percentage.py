@@ -1,4 +1,4 @@
-import time
+import time as dwight
 from datetime import datetime, date, time
 
 class DayPercentage:
@@ -15,4 +15,4 @@ class DayPercentage:
     lcd.cursor_pos=(1,0)
     lcd.write_string(f"Day percentage={day_percentage}%")
     print(f"Day percentage = {day_percentage}%");
-    time.sleep(sleep)
+    dwight.sleep(sleep)
