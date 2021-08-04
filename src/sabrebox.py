@@ -11,7 +11,7 @@ from informations.message import Message
 GPIO.setwarnings(False)
 #lcd = CharLCD(pin_rs=19, pin_rw=None, pin_e=16, pins_data=[21,18,23,24], numbering_mode=GPIO.BOARD, cols=16, rows=2, dotsize=8)
 #lcd = CharLCD(pin_rs=11, pin_rw=None, pin_e=13, pins_data=[15,12,16,18], numbering_mode=GPIO.BOARD, cols=16, rows=2, dotsize=8)
-lcd = CharLCD(pin_rs=17, pin_rw=None, pin_e=27, pins_data=[22,18,24,23], numbering_mode=GPIO.BOARD, cols=16, rows=2, dotsize=8)
+lcd = CharLCD(pin_rs=17, pin_rw=None, pin_e=10, pins_data=[22,18,24,23], numbering_mode=GPIO.BOARD, cols=16, rows=2, dotsize=8)
 
 class Informations(Enum):
   WEATHER = Weather()
