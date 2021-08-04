@@ -5,8 +5,8 @@ import Adafruit_DHT
 from datetime import datetime
 
 DHT_SENSOR = Adafruit_DHT.DHT22
-#DHT_PIN = 4
-DHT_PIN = 7
+DHT_PIN = 4
+#DHT_PIN = 7
 
 class Weather:
 
