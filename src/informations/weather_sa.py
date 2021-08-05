@@ -12,6 +12,7 @@ class WeatherSa:
       appid = os.getenv('API_KEY_OPENWEATHER')
       print(appid)
       response = requests.get('https://api.openweathermap.org/data/2.5/weather?q=Santo%20Andre&units=metric&appid=' + appid)
+      print(response)
       data = response.json()
       temperature = data["main"]["temp"]
       feels_like = data["main"]["feels_like"]
