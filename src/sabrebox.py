@@ -8,6 +8,7 @@ from informations.ip import Ip
 from informations.day_percentage import DayPercentage
 from informations.message import Message
 from informations.ethereum import Ethereum
+from informations.weather_sa import WeatherSa
 
 GPIO.setwarnings(False)
 lcd = CharLCD(pin_rs=19, pin_rw=None, pin_e=16, pins_data=[21,18,23,24], numbering_mode=GPIO.BOARD, cols=16, rows=2, dotsize=8)
@@ -18,6 +19,7 @@ class Informations(Enum):
   IP = Ip()
   DAY = DayPercentage()
   ETH = Ethereum()
+  SA = WeatherSa() 
 
 while(True):
   for info in Informations:
