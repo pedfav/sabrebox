@@ -19,6 +19,6 @@ class WeatherSa:
     lcd.clear()
     lcd.write_string("Santo Andre - SP")
     lcd.cursor_pos=(1,0)
-    lcd.write_string(f"T-{round(temperatura, 1)}C F-{round(feels_like, 1)}")
-    print(f"T-{round(temperatura, 1)}C F-{round(feels_like, 1)}")
+    lcd.write_string(f"T-{round(temperature, 1)}C F-{round(feels_like, 1)}")
+    print(f"T-{round(temperature, 1)}C F-{round(feels_like, 1)}")
     time.sleep(sleep)
