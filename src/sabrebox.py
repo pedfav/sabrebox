@@ -23,4 +23,4 @@ class Informations(Enum):
 
 while(True):
   for info in Informations:
-    info.value.get(2, lcd)
+    info.value.get(3, lcd)
