@@ -2,7 +2,7 @@ import RPi.GPIO as GPIO
 
 from RPLCD.gpio import CharLCD
 from enum import Enum
-from informations.weather import Weather
+from informations.weather_local import Weather
 from informations.bitcoin import Bitcoin
 from informations.ip import Ip
 from informations.day_percentage import DayPercentage
