@@ -16,7 +16,9 @@ class Crypto:
       data_eth = response_eth.json()
       eth = data_eth["result"]["ethusd"]
 
-      lcd_write(f"BTC - ${btc}", f"BTC - ${eth}")
+      lcd_write(f"BTC - ${btc}", f"ETH - ${eth}")
+      print(f"BTC - ${btc} ETH - ${eth}")
+
       time.sleep(sleep)
     except Exception as e:
       print(f"Error on crypto: {e}")
