@@ -18,7 +18,7 @@ class Informations(Enum):
   WEATHER = Weather()
   BTC = Crypto()
   DAY = DayPercentage()
-  SA = WeatherSa() 
+  SA = WeatherSa()
 
 while(True):
   for info in Informations:
