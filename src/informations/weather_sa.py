@@ -3,26 +3,24 @@ import requests
 import time
 import os
 
-from datetime import datetime
+from helpers.lcd import lcd_write
 
 class WeatherSa:
 
-  def get(self, sleep, lcd):
+  def get(self, sleep):
     try:  
       appid = os.getenv('API_KEY_OPENWEATHER')
-      print(appid)
       response = requests.get('https://api.openweathermap.org/data/2.5/weather?q=Santo%20Andre&units=metric&appid=' + appid)
-      print(response)
-      data = response.json()
-      temperature = data["main"]["temp"]
-      feels_like = data["main"]["feels_like"]
-    except Exception as e:
-      temperature = "**"
-      feels_like = "**"
 
-    lcd.clear()
-    lcd.write_string("Santo Andre - SP")
-    lcd.cursor_pos=(1,0)
-    lcd.write_string(f"T-{round(temperature, 1)}C  F-{round(feels_like, 1)}C")
-    print(f"T-{round(temperature, 1)}C F-{round(feels_like, 1)}")
+      if response.status_code == 200:
+        data = response.json()
+        temperature = data["main"]["temp"]
+        feels_like = data["main"]["feels_like"]
+
+        lcd_write("Santo Andre - SP", f"T-{round(temperature, 1)}C  F-{round(feels_like, 1)}C")
+        print(f"T-{round(temperature, 1)}C F-{round(feels_like, 1)}")
+
+    except Exception as e:
+      lcd_write("Santo Andre - SP", f"T-**C  F-**C")
+
     time.sleep(sleep)
