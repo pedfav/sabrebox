@@ -24,6 +24,6 @@ class Informations(Enum):
 while(True):
   gpio.output(12,gpio.HIGH)
   time.sleep(1)
-  gpio.output(12,gpio.HIGH)
+  gpio.output(12,gpio.LOW)
   for info in Informations:  
     info.value.get(3)
