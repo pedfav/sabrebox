@@ -27,5 +27,5 @@ while(True):
     gpio.output(12,gpio.HIGH)
     info.value.get(3)
     gpio.output(12,gpio.LOW)
-    time(1)
+    time.sleep(1)
 
