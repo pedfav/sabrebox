@@ -4,7 +4,6 @@ from informations.weather_local import Weather
 from informations.crypto import Crypto
 from informations.ip import Ip
 from informations.day_percentage import DayPercentage
-from informations.ethereum import Ethereum
 from informations.weather_sa import WeatherSa
 
 
@@ -13,7 +12,6 @@ class Informations(Enum):
   BTC = Crypto()
   IP = Ip()
   DAY = DayPercentage()
-  ETH = Ethereum()
   SA = WeatherSa() 
 
 while(True):
