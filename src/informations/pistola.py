@@ -66,4 +66,4 @@ lcd.create_char(2, caule_inf)
 lcd.create_char(3, chapeleta_sup)
 lcd.create_char(4, chapeleta_inf)
 
-lcd.write_string('\x13')
+lcd.write_string('\x00\x01\x01')
