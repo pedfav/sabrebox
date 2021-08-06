@@ -17,13 +17,15 @@ gpio.setup(12, gpio.OUT)
 class Informations(Enum):
   WEATHER = Weather()
   BTC = Crypto()
-  IP = Ip()
   DAY = DayPercentage()
   SA = WeatherSa() 
 
 while(True):
-  gpio.output(12,gpio.HIGH)
-  time.sleep(1)
-  gpio.output(12,gpio.LOW)
-  for info in Informations:  
+  for info in Informations:
+    if(gpio.input(23) == 1):
+      Ip().get(3)
+    gpio.output(12,gpio.HIGH)
     info.value.get(3)
+    gpio.output(12,gpio.LOW)
+    time(1)
+
