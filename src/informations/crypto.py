@@ -7,7 +7,8 @@ from helpers.lcd import lcd_write
 class Crypto:
 
   def get(self, sleep):
-    try:  
+    try:
+      btc, eth = None  
       response_btc = requests.get('https://api.coindesk.com/v1/bpi/currentprice.json')
       if response_btc.status_code == 200:
         data = response_btc.json()

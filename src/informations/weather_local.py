@@ -23,5 +23,3 @@ class Weather:
       time.sleep(sleep)
     except Exception as e:
       print(f"Error on DHT: {e}")
-
-
