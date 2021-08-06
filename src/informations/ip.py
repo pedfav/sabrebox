@@ -14,7 +14,6 @@ class Ip:
 
       lcd_write("IP", s.getsockname()[0])
       print(f"IP={s.getsockname()[0]}")
+      time.sleep(sleep)
     except Exception as e:
-      lcd_write("IP", "#.#.#.#")
-
-    time.sleep(sleep)
+      print(f"Error on Ip: {e}")

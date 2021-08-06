@@ -19,7 +19,6 @@ class Crypto:
         eth = data["result"]["ethusd"]
 
       lcd_write(f"BTC - ${btc}", f"BTC - ${eth}")
+      time.sleep(sleep)
     except Exception as e:
-      lcd_write(f"BTC - $****", f"BTC - $****")
-
-    time.sleep(sleep)
+      print(f"Error on crypto: {e}")

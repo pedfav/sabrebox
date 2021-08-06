@@ -20,9 +20,8 @@ class Weather:
       else:
         lcd_write("DHT22 not workin", "")
         print("DHT22 not workin")
+      time.sleep(sleep)
     except Exception as e:
-      lcd_write("DHT22 not workin", "")
-      print("DHT22 not workin")
+      print(f"Error on DHT: {e}")
 
-    time.sleep(sleep)
 

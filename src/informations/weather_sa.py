@@ -19,8 +19,7 @@ class WeatherSa:
 
         lcd_write("Santo Andre - SP", f"T-{round(temperature, 1)}C  F-{round(feels_like, 1)}C")
         print(f"T-{round(temperature, 1)}C F-{round(feels_like, 1)}")
-
+        
+      time.sleep(sleep)
     except Exception as e:
-      lcd_write("Santo Andre - SP", f"T-**C  F-**C")
-
-    time.sleep(sleep)
+      print(f"Error on SA: {e}")
