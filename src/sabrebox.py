@@ -12,7 +12,7 @@ from informations.weather_sa import WeatherSa
 gpio.setmode(gpio.BOARD)
 
 gpio.setup(22, gpio.IN, pull_up_down = gpio.PUD_DOWN)
-gpio.setup(18,GPIO.OUT)
+gpio.setup(12, gpio.OUT)
 
 class Informations(Enum):
   WEATHER = Weather()
