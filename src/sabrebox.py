@@ -1,4 +1,5 @@
 
+import time
 import RPi.GPIO as gpio
 
 from enum import Enum
@@ -11,6 +12,7 @@ from informations.weather_sa import WeatherSa
 gpio.setmode(gpio.BOARD)
 
 gpio.setup(22, gpio.IN, pull_up_down = gpio.PUD_DOWN)
+gpio.setup(18,GPIO.OUT)
 
 class Informations(Enum):
   WEATHER = Weather()
@@ -20,7 +22,8 @@ class Informations(Enum):
   SA = WeatherSa() 
 
 while(True):
-  for info in Informations:
-    if(gpio.input(22) == 1):
-      print('kkkkk')    
+  gpio.output(12,gpio.HIGH)
+  time.sleep(1)
+  gpio.output(12,gpio.HIGH)
+  for info in Informations:  
     info.value.get(3)
