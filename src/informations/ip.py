@@ -7,7 +7,6 @@ from helpers.lcd import lcd_write
 class Ip:
 
   def get(self, sleep):
-    lcd.clear()
 
     try:
       s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
