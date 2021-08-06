@@ -8,18 +8,15 @@ class Crypto:
 
   def get(self, sleep):
     try:
-      btc = '**'
-      eth = '**'
-
       response_btc = requests.get('https://api.coindesk.com/v1/bpi/currentprice.json')
       if response_btc.status_code == 200:
-        data = response_btc.json()
-        btc = data["bpi"]["USD"]["rate"]
+        data_btc = response_btc.json()
+        btc = data_btc["bpi"]["USD"]["rate"]
 
       response_eth = requests.get('https://api.etherscan.io/api?module=stats&action=ethprice')
       if response_eth == 200:
-        data = response_eth.json()
-        eth = data["result"]["ethusd"]
+        data_eth = response_eth.json()
+        eth = data_eth["result"]["ethusd"]
 
       lcd_write(f"BTC - ${btc}", f"BTC - ${eth}")
       time.sleep(sleep)
