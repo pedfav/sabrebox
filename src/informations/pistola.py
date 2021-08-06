@@ -1,3 +1,4 @@
+import time
 import RPi.GPIO as GPIO
 
 from RPLCD.gpio import CharLCD
@@ -66,4 +67,8 @@ lcd.create_char(2, caule_inf)
 lcd.create_char(3, chapeleta_sup)
 lcd.create_char(4, chapeleta_inf)
 
-lcd.write_string('\x00\x01\x01')
+lcd.write_string('\x00\x01\x01\x01\x01\x01\x01\x01\x01\x01\x03')
+lcd.cursor_pos=(1,0)
+lcd.write_string('\x00\x01\x01\x01\x01\x01\x01\x01\x01\x01\x04')
+time.sleep(10)
+
