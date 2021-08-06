@@ -8,7 +8,9 @@ class Crypto:
 
   def get(self, sleep):
     try:
-      btc, eth = None  
+      btc = '**'
+      eth = '**'
+
       response_btc = requests.get('https://api.coindesk.com/v1/bpi/currentprice.json')
       if response_btc.status_code == 200:
         data = response_btc.json()
