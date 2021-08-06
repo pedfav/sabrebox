@@ -22,7 +22,7 @@ class Informations(Enum):
 
 while(True):
   for info in Informations:
-    if(gpio.input(23) == 1):
+    if(gpio.input(22) == 1):
       Ip().get(3)
     gpio.output(12,gpio.HIGH)
     info.value.get(3)
