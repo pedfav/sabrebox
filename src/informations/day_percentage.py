@@ -4,7 +4,7 @@ from helpers.lcd import lcd_write
 
 class DayPercentage:
 
-  def get(self, sleep):
+  def get(self):
     day_start = datetime.combine(date.today(), time())
     now = datetime.now()
     duration = now - day_start

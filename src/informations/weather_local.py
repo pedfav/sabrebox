@@ -10,7 +10,7 @@ DHT_PIN = 4
 
 class Weather:
 
-  def get(self, sleep):
+  def get(self):
     try:
       humidity, temperature = Adafruit_DHT.read_retry(DHT_SENSOR, DHT_PIN)
 
