@@ -14,12 +14,9 @@ class Weather:
     try:
       humidity, temperature = Adafruit_DHT.read_retry(DHT_SENSOR, DHT_PIN)
 
-      if humidity is not None and temperature is not None:
-        lcd_write(f"Temp - {round(temperature, 2)}C", f"Hum  - {round(humidity, 2)}%")
-        print(f"Temperature={round(temperature, 2)} - Humidity={round(humidity, 2)}")
-      else:
-        lcd_write("DHT22 not workin", "")
-        print("DHT22 not workin")
-      time.sleep(sleep)
+      print(f"Temperature={round(temperature, 2)} - Humidity={round(humidity, 2)}")
+      return f"Temp - {round(temperature, 2)}C", f"Hum  - {round(humidity, 2)}%"
+     
     except Exception as e:
       print(f"Error on DHT: {e}")
+      return None, None

@@ -6,7 +6,7 @@ from helpers.lcd import lcd_write
 
 class Crypto:
 
-  def get(self, sleep):
+  def get(self):
     try:
       eth, btc = '**'
       response_btc = requests.get('https://api.coindesk.com/v1/bpi/currentprice.json')
@@ -19,9 +19,8 @@ class Crypto:
         data_eth = response_eth.json()
         eth = data_eth["result"]["ethusd"]
 
-      lcd_write(f"BTC - ${btc}", f"ETH - ${eth}")
       print(f"BTC - ${btc} ETH - ${eth}")
-
-      time.sleep(sleep)
+      return f"BTC - ${btc}", f"ETH - ${eth}"
     except Exception as e:
       print(f"Error on crypto: {e}")
+      return None, None

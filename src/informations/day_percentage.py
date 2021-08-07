@@ -11,6 +11,5 @@ class DayPercentage:
 
     day_percentage = round((duration.total_seconds() * 100) / 86400, 2)
 
-    lcd_write(now.strftime("%d/%m/%Y %H:%M"), f"{day_percentage}% gone")
     print(f"Day percentage = {day_percentage}%");
-    dwight.sleep(sleep)
+    return now.strftime("%d/%m/%Y %H:%M"), f"{day_percentage}% gone"

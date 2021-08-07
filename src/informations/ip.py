@@ -1,7 +1,6 @@
 import socket
 import time
 
-from datetime import datetime
 from helpers.lcd import lcd_write
 
 class Ip:
