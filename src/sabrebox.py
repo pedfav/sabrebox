@@ -24,7 +24,9 @@ class Informations(Enum):
 def print_time(number_of_times):
   for x in range(number_of_times):
     if(gpio.input(22) == 1):
+      gpio.output(12,gpio.HIGH)
       Ip().get(3)
+      gpio.output(12,gpio.LOW)
     time.sleep(0.5)
 
 while True:
