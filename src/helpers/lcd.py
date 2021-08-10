@@ -28,7 +28,7 @@ def lcd_write_running(first_line, second_line):
   lcd.clear()
   running_text(first_line)
   lcd.cursor_pos=(1,0)
-  running_text('\x00' + second_line)
+  running_text(f"\x00 {second_line}")
 
 def lcd_write(first_line, second_line):
   lcd.clear()
