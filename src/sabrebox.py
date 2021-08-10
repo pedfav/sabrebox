@@ -36,7 +36,7 @@ while True:
     first_line, second_line = info.value.get()
 
     if first_line is not None and second_line is not None:
-      if str(info) == 'SPOTIFY':
+      if info == Informations.SPOTIFY:
         lcd_write_running(first_line, second_line)
         print_time(6)
       else:
