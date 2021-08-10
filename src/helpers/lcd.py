@@ -25,10 +25,14 @@ def running_text(text):
     time.sleep(0.2)
 
 def lcd_write_running(first_line, second_line):
+  # lcd.clear()
+  # running_text(first_line)
+  # lcd.cursor_pos=(1,0)
+  # running_text(f"\x00 {second_line}")
   lcd.clear()
-  running_text(first_line)
+  lcd.write_string(first_line)
   lcd.cursor_pos=(1,0)
-  running_text(f"\x00 {second_line}")
+  lcd.write_string(f"\x00 {second_line}")
 
 def lcd_write(first_line, second_line):
   lcd.clear()
