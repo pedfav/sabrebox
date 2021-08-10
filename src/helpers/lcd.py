@@ -10,8 +10,6 @@ def running_text(text):
   for i in range(len(text) - 16 + 1):
     lcd.write_string(text[i:i+16])
     time.sleep(0.2)
-  lcd.clear()
-
 
 def lcd_write(first_line, second_line):
   lcd.clear()
