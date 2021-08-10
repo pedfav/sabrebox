@@ -1,7 +1,6 @@
 
-import requests
-import time
 import os
+import requests
 
 class WeatherSa:
 

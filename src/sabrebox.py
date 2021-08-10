@@ -8,6 +8,7 @@ from informations.crypto import Crypto
 from informations.ip import Ip
 from informations.day_percentage import DayPercentage
 from informations.weather_sa import WeatherSa
+from informations.spotify import Spotify
 from helpers.lcd import lcd_write
 
 gpio.setmode(gpio.BOARD)
@@ -16,6 +17,7 @@ gpio.setup(22, gpio.IN, pull_up_down = gpio.PUD_DOWN)
 gpio.setup(12, gpio.OUT)
 
 class Informations(Enum):
+  SPOTIFY = Spotify()
   WEATHER = Weather()
   BTC = Crypto()
   DAY = DayPercentage()
