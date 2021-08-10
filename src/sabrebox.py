@@ -9,7 +9,7 @@ from informations.ip import Ip
 from informations.day_percentage import DayPercentage
 from informations.weather_sa import WeatherSa
 from informations.spotify import Spotify
-from helpers.lcd import lcd_write
+from helpers.lcd import lcd_write, lcd_write_running
 
 gpio.setmode(gpio.BOARD)
 
@@ -36,5 +36,9 @@ while True:
     first_line, second_line = info.value.get()
 
     if first_line is not None and second_line is not None:
-      lcd_write(first_line, second_line)
-      print_time(6)
+      if info == Informations.SPOTIFY:
+        lcd_write_running(first_line, second_line)
+        print_time(6)
+      else:
+        lcd_write(first_line, second_line)
+        print_time(6)
