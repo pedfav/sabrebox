@@ -37,6 +37,7 @@ while True:
 
     if first_line is not None and second_line is not None:
       if info == Informations.SPOTIFY:
+        print('spotify')
         lcd_write_running(first_line, second_line)
         print_time(6)
       else:
