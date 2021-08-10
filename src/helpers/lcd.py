@@ -9,11 +9,12 @@ lcd = CharLCD(pin_rs=19, pin_rw=None, pin_e=16, pins_data=[21,18,23,24], numberi
 def running_text(text):
   for i in range(len(text) - 16 + 1):
     lcd.write_string(text[i:i+16])
-
     time.sleep(0.2)
+  lcd.clear()
+
 
 def lcd_write(first_line, second_line):
   lcd.clear()
-  len(first_line) > 16 if running_text(first_line) else lcd.write_string(first_line)
+  len(first_line) > 17 if running_text(first_line) else lcd.write_string(first_line)
   lcd.cursor_pos=(1,0)
-  len(second_line) > 16 if running_text(second_line) else lcd.write_string(second_line)
+  len(second_line) > 17 if running_text(second_line) else lcd.write_string(second_line)
