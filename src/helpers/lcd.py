@@ -6,7 +6,7 @@ from RPLCD.gpio import CharLCD
 GPIO.setwarnings(False)
 lcd = CharLCD(pin_rs=19, pin_rw=None, pin_e=16, pins_data=[21,18,23,24], numbering_mode=GPIO.BOARD, cols=16, rows=2, dotsize=8)
 
-song_symbol = {
+song_symbol = (
   0b00001,
   0b00011,
   0b00101,
@@ -15,7 +15,7 @@ song_symbol = {
   0b01011,
   0b11011,
   0b11000
-}
+)
 
 lcd.create_char(0, song_symbol)
 
