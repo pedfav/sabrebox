@@ -29,7 +29,7 @@ def print_time(number_of_times):
       gpio.output(12,gpio.HIGH)
       Ip().get(3)
       gpio.output(12,gpio.LOW)
-    time.sleep(0.5)
+    time.sleep(0.2)
 
 while True:
   for info in Informations:
@@ -38,7 +38,7 @@ while True:
     if first_line is not None and second_line is not None:
       if info == Informations.SPOTIFY:
         lcd_write_running(first_line, second_line)
-        print_time(6)
+        print_time(30)
       else:
         lcd_write(first_line, second_line)
-        print_time(6)
+        print_time(30)

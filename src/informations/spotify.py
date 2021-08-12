@@ -11,25 +11,28 @@ basic = base64.b64encode(basic.encode('ascii'))
 class Spotify:
 
   def get(self):
-    headers = {
-      'Accept': 'application/json',
-      'Content-Type': 'application/json',
-      'Authorization': 'Bearer ' + os.getenv('TOKEN')
-    }
+    try:
+      headers = {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ' + os.getenv('TOKEN')
+      }
 
-    response = requests.request("GET", URL_CURRENT_PLAYING, headers=headers)
+      response = requests.request("GET", URL_CURRENT_PLAYING, headers=headers)
 
-    if response.status_code == 401:
-      self.refresh_token()
-      return self.get()
+      if response.status_code == 401:
+        self.refresh_token()
+        return self.get()
 
-    if response.status_code == 204:
+      if response.status_code == 204:
+        return None, None
+
+      artists = ','.join(artist['name'] for artist in response.json()['item']['artists'])
+      song = response.json()['item']['name']
+      print(f"Spotify playing artist={artists} and song={song}")
+      return artists, song
+    except Exception:
       return None, None
-
-    artists = ','.join(artist['name'] for artist in response.json()['item']['artists'])
-    song = response.json()['item']['name']
-    print(f"Spotify playing artist={artists} and song={song}")
-    return artists, song
 
 
   def refresh_token(self):
