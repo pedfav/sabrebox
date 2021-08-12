@@ -31,8 +31,9 @@ def print_time(number_of_times):
       gpio.output(12,gpio.HIGH)
       Ip().get(3)
       gpio.output(12,gpio.LOW)
-    time.sleep(0.2)
     gpio.output(12,gpio.LOW)
+    time.sleep(0.2)
+
 
 
 while True:
