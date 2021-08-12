@@ -26,13 +26,13 @@ class Informations(Enum):
 def print_time(number_of_times):
   for x in range(number_of_times):
     gpio.output(12,gpio.HIGH)
-    time.sleep(0.2)
+    time.sleep(0.05)
     if(gpio.input(22) == 1):
       gpio.output(12,gpio.HIGH)
       Ip().get(3)
       gpio.output(12,gpio.LOW)
     gpio.output(12,gpio.LOW)
-    time.sleep(0.2)
+    time.sleep(0.05)
 
 
 
@@ -43,7 +43,7 @@ while True:
     if first_line is not None and second_line is not None:
       if info == Informations.SPOTIFY:
         lcd_write_running(first_line, second_line)
-        print_time(15)
+        print_time(100)
       else:
         lcd_write(first_line, second_line)
-        print_time(15)
+        print_time(100)
