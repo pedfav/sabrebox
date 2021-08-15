@@ -17,7 +17,7 @@ while(True):
   lcd.write_string("Third_line")
   lcd.cursor_pos=(3,0)
   lcd.write_string("Fourth_line")
-  time.sleep(5)
+  time.sleep(0.5)
   print("printing")
 
 
