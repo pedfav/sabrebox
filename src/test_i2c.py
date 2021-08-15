@@ -15,3 +15,6 @@ while(True):
   lcd.write_string("Third_line")
   lcd.cursor_pos=(3,0)
   lcd.write_string("Fourth_line")
+  print("printing")
+
+
