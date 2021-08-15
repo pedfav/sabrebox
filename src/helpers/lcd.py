@@ -1,10 +1,14 @@
 import time
-import RPi.GPIO as GPIO
+from RPLCD.i2c import CharLCD
 
-from RPLCD.gpio import CharLCD
 
-GPIO.setwarnings(False)
-lcd = CharLCD(pin_rs=19, pin_rw=None, pin_e=16, pins_data=[21,18,23,24], numbering_mode=GPIO.BOARD, cols=16, rows=2, dotsize=8)
+#GPIO.setwarnings(False)
+#lcd = CharLCD(pin_rs=19, pin_rw=None, pin_e=16, pins_data=[21,18,23,24], numbering_mode=GPIO.BOARD, cols=16, rows=2, dotsize=8)
+lcd = CharLCD(i2c_expander='PCF8574', address=0x27, port=1,
+              cols=20, rows=4, dotsize=8,
+              charmap='A02',
+              auto_linebreaks=True,
+              backlight_enabled=True)
 
 song_symbol = (
   0b00001,
