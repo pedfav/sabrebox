@@ -6,15 +6,17 @@ lcd = CharLCD(i2c_expander='PCF8574', address=0x27, port=1,
               charmap='A02',
               backlight_enabled=True)
 
+i=0
 
 while(True):
-  lcd.write_string("First_line")
+  i=i+1
+  lcd.write_string(f"First_line {i}")
   lcd.cursor_pos=(1,0)
-  lcd.write_string("Second_line")
+  lcd.write_string(f"Second_line {i}")
   lcd.cursor_pos=(2,0)
-  lcd.write_string("Third_line")
+  lcd.write_string(f"Third_line {i}")
   lcd.cursor_pos=(3,0)
-  lcd.write_string("Fourth_line")
+  lcd.write_string(f"Fourth_line {i}")
   time.sleep(0.5)
   print("printing")
 
