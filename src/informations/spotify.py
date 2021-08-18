@@ -28,8 +28,8 @@ class Spotify:
       if response.status_code == 204:
         return []
 
-      artists = __extract_artist(response)
-      song = __extract_song(response)
+      artists = extract_artist(response)
+      song = extract_song(response)
       print(f"Spotify playing artist={artists} and song={song}")
       return [artists, song]
     except Exception:
@@ -53,9 +53,9 @@ class Spotify:
     os.environ['TOKEN'] = response.json()['access_token']
 
 
-  def __extract_artist(response):
+  def extract_artist(response):
     return ','.join(artist['name'] for artist in response.json()['item']['artists'])
   
-  
-  def __extract_song(response):
+
+  def extract_song(response):
     return response.json()['item']['name']
