@@ -1,5 +1,5 @@
 from RPLCD.i2c import CharLCD
-from lcd_characters import song_symbol
+from helpers.lcd_characters import song_symbol
 
 
 lcd = CharLCD(i2c_expander='PCF8574', address=0x27, port=1,
