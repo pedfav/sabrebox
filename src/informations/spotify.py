@@ -1,7 +1,6 @@
 import os
 import base64
 import requests
-from helpers.lcd_characters import song_symbol
 
 
 REFRESH_TOKEN_URL = 'https://accounts.spotify.com/api/token'
@@ -28,10 +27,11 @@ class Spotify:
       if response.status_code == 204:
         return []
 
-      artists = extract_artist(response)
-      song = extract_song(response)
+      artists = self.extract_artist(response)
+      song = self.extract_song(response)
+
       print(f"Spotify playing artist={artists} and song={song}")
-      return [artists, song]
+      return self.print_to_lcd(artists, song)
     except Exception:
       return []
 
@@ -53,9 +53,20 @@ class Spotify:
     os.environ['TOKEN'] = response.json()['access_token']
 
 
-  def extract_artist(response):
+  def extract_artist(self, response):
     return ','.join(artist['name'] for artist in response.json()['item']['artists'])
   
 
-  def extract_song(response):
+  def extract_song(self, response):
     return response.json()['item']['name']
+
+  
+  def print_to_lcd(artist, song):
+    song_with_symbol = f"\x00 {song}"
+
+    if len(song) > 20:
+      song_line_one = song_with_symbol[:20]
+      song_line_two = song_with_symbol[20:40]  
+    
+    return [" Playing on spotify ", artist, song_line_one, song_line_two]
+  
