@@ -11,7 +11,7 @@ class Ip:
       s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
       s.connect(("8.8.8.8", 80))
 
-      lcd_write("IP", s.getsockname()[0])
+      lcd_write(["IP", s.getsockname()[0]])
       print(f"IP={s.getsockname()[0]}")
       time.sleep(sleep)
     except Exception as e:

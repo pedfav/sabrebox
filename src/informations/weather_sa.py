@@ -16,7 +16,7 @@ class WeatherSa:
 
         print(f"T-{round(temperature, 1)}C F-{round(feels_like, 1)}")
         
-      return "Santo Andre - SP", f"T-{round(temperature, 1)}C  F-{round(feels_like, 1)}C"
+      return ["Santo Andre - SP", f"T-{round(temperature, 1)}C  F-{round(feels_like, 1)}C"]
     except Exception as e:
       print(f"Error on SA: {e}")
-      return None, None
+      return []

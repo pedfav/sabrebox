@@ -1,10 +1,8 @@
 
 import requests
-import time
 
-from helpers.lcd import lcd_write
 
-class Crypto:
+class Currency:
 
   def get(self):
     try:
@@ -20,7 +18,7 @@ class Crypto:
         eth = data_eth["result"]["ethusd"]
 
       print(f"BTC - ${btc} ETH - ${eth}")
-      return f"BTC - ${btc}", f"ETH - ${eth}"
+      return [f"BTC - ${btc}", f"ETH - ${eth}"]
     except Exception as e:
       print(f"Error on crypto: {e}")
-      return None, None
+      return []

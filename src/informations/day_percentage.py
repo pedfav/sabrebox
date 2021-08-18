@@ -12,4 +12,4 @@ class DayPercentage:
     day_percentage = round((duration.total_seconds() * 100) / 86400, 2)
 
     print(f"Day percentage = {day_percentage}%");
-    return now.strftime("%d/%m/%Y %H:%M"), f"{day_percentage}% gone"
+    return [now.strftime("%d/%m/%Y %H:%M"), f"{day_percentage}% gone"]
