@@ -66,7 +66,10 @@ class Spotify:
 
     if len(song) > 20:
       song_line_one = song_with_symbol[:20]
-      song_line_two = song_with_symbol[20:40]  
+      song_line_two = song_with_symbol[20:40]
+    else: 
+      song_line_one = song_with_symbol
+      song_line_two = ''
     
     return [" Playing on spotify ", artist, song_line_one, song_line_two]
   
