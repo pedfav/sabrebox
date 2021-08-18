@@ -13,6 +13,5 @@ lcd.create_char(0, song_symbol)
 def lcd_write(lines):
   lcd.clear()
   for line in lines:
-    print(line)
-    #lcd.write_string(line)
-    #lcd.crlf()
+    lcd.write_string(line)
+    lcd.crlf()

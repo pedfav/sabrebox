@@ -25,14 +25,14 @@ class Spotify:
         return self.get()
 
       if response.status_code == 204:
-        return None, None
+        return []
 
       artists = ','.join(artist['name'] for artist in response.json()['item']['artists'])
       song = response.json()['item']['name']
       print(f"Spotify playing artist={artists} and song={song}")
       return [artists, song]
     except Exception:
-      return
+      return []
 
 
   def refresh_token(self):
