@@ -12,6 +12,7 @@ from informations.spotify import Spotify
 from helpers.lcd import lcd_write
 
 
+gpio.setwarnings(False)
 gpio.setmode(gpio.BOARD)
 gpio.setup(22, gpio.IN, pull_up_down = gpio.PUD_DOWN)
 gpio.setup(12, gpio.OUT)
