@@ -1,5 +1,5 @@
 from RPLCD.i2c import CharLCD
-from helpers.lcd_characters import song_symbol
+from helpers.lcd_characters import song_symbol, play_symbol, spotify_symbol
 
 
 lcd = CharLCD(i2c_expander='PCF8574', address=0x27, port=1,
@@ -8,7 +8,9 @@ lcd = CharLCD(i2c_expander='PCF8574', address=0x27, port=1,
               auto_linebreaks=True,
               backlight_enabled=True)
 
-lcd.create_char(0, song_symbol)
+lcd.create_char(0, spotify_symbol)
+lcd.create_char(1, play_symbol)
+lcd.create_char(2, song_symbol)
 
 def lcd_write(lines):
   lcd.clear()

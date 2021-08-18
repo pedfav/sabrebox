@@ -63,7 +63,7 @@ class Spotify:
 
   
   def print_to_lcd(self, artist, song):
-    song_with_symbol = f"\x00 {song}"
+    song_with_symbol = f"\x02 {song}"
 
     if len(song) > 20:
       song_line_one = song_with_symbol[:20]
@@ -72,5 +72,5 @@ class Spotify:
       song_line_one = song_with_symbol
       song_line_two = ''
     
-    return ["Spotify - Playing", artist[:20], song_line_one, song_line_two]
+    return ["\x00 Spotify - Playing", f"\x01 {artist}"[:20], song_line_one, song_line_two]
   
