@@ -72,5 +72,5 @@ class Spotify:
       song_line_one = song_with_symbol
       song_line_two = ''
     
-    return [" Playing on spotify ", artist, song_line_one, song_line_two]
+    return ["Spotify - Playing", artist[:20], song_line_one, song_line_two]
   
