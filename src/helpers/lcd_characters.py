@@ -10,7 +10,7 @@ song_symbol = (
   0b11000
 )
 
-play_symbol = {
+play_symbol = (
   0b01000,
   0b01100,
   0b01110,
@@ -19,9 +19,9 @@ play_symbol = {
   0b01100,
   0b01000,
   0b00000
-}
+)
 
-spotify_symbol = {
+spotify_symbol = (
   0b00001,
   0b00011,
   0b01111,
@@ -30,4 +30,4 @@ spotify_symbol = {
   0b00011,
   0b00001,
   0b00000
-}
+)
