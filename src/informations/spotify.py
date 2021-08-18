@@ -62,7 +62,7 @@ class Spotify:
     return response.json()['item']['name']
 
   
-  def print_to_lcd(artist, song):
+  def print_to_lcd(self, artist, song):
     song_with_symbol = f"\x00 {song}"
 
     if len(song) > 20:
