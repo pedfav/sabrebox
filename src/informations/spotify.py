@@ -1,6 +1,8 @@
 import os
 import base64
 import requests
+from helpers.lcd_characters import song_symbol
+
 
 REFRESH_TOKEN_URL = 'https://accounts.spotify.com/api/token'
 URL_CURRENT_PLAYING = 'https://api.spotify.com/v1/me/player/currently-playing?market=ES'
@@ -8,17 +10,16 @@ URL_CURRENT_PLAYING = 'https://api.spotify.com/v1/me/player/currently-playing?ma
 basic = os.getenv('SPOTIFY_CLIENT_ID') + ':' + os.getenv('SPOTIFY_CLIENT_SECRET')        
 basic = base64.b64encode(basic.encode('ascii'))
 
+
 class Spotify:
 
   def get(self):
     try:
-      headers = {
+      response = requests.request("GET", URL_CURRENT_PLAYING, headers={
         'Accept': 'application/json',
         'Content-Type': 'application/json',
         'Authorization': 'Bearer ' + os.getenv('TOKEN')
-      }
-
-      response = requests.request("GET", URL_CURRENT_PLAYING, headers=headers)
+      })
 
       if response.status_code == 401:
         self.refresh_token()
@@ -27,8 +28,8 @@ class Spotify:
       if response.status_code == 204:
         return []
 
-      artists = ','.join(artist['name'] for artist in response.json()['item']['artists'])
-      song = response.json()['item']['name']
+      artists = __extract_artist(response)
+      song = __extract_song(response)
       print(f"Spotify playing artist={artists} and song={song}")
       return [artists, song]
     except Exception:
@@ -49,5 +50,12 @@ class Spotify:
       verify=True            
     )
 
-    token = response.json()['access_token']
-    os.environ['TOKEN'] = token
+    os.environ['TOKEN'] = response.json()['access_token']
+
+
+  def __extract_artist(response):
+    return ','.join(artist['name'] for artist in response.json()['item']['artists'])
+  
+  
+  def __extract_song(response):
+    return response.json()['item']['name']
