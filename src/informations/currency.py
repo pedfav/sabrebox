@@ -1,7 +1,6 @@
 
 import requests
 
-maketrans = str.maketrans
 
 class Currency:
 
@@ -26,7 +25,7 @@ class Currency:
       if response_btc.status_code == 200:
         data_btc = response_btc.json()
         btc = data_btc["bpi"]["USD"]["rate"]
-        return f"BTC - {btc.translate(maketrans(',.', '.,'))}"
+        return f"BTC - ${round(btc, 2)}"
 
       return "BTC - Not found"
     except Exception:
@@ -39,7 +38,7 @@ class Currency:
       if response_eth.status_code == 200:
         data_eth = response_eth.json()
         eth = data_eth["result"]["ethusd"]
-        return f"ETH - {eth.translate(maketrans(',.', '.,'))}"
+        return f"ETH - ${round(eth, 2)}"
 
       return "ETH - Not found"
     except Exception:
@@ -53,7 +52,7 @@ class Currency:
         data_usd_euro = response.json()
         usd = data_usd_euro["USDBRL"]["ask"]
         euro = data_usd_euro["EURBRL"]["ask"]
-        return [f"USD - R${usd.translate(maketrans(',.', '.,'))}", f"EUR - R${euro.translate(maketrans(',.', '.,'))}"]
+        return [f"USD - R${round(usd, 2)}", f"EUR - R${round(euro, 2)}"]
 
       return ["USD - Not found", "EUR - Not found"]
     except Exception:
