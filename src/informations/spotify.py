@@ -33,7 +33,7 @@ class Spotify:
       print(f"Spotify playing artist={artists} and song={song}")
       return self.print_to_lcd(artists, song)
     except Exception as e:
-      print(e)
+      print(f"Error on get spotify current song")
       return []
 
 
