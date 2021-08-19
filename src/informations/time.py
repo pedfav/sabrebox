@@ -7,8 +7,8 @@ class Time:
   def get(self):
     now = datetime.now()
     day_percentage = self.get_day_percentage(now)
-    month_percentage = self.get_year_percentage(now)
-    year_percentage = self.get_month_percentage()
+    year_percentage = self.get_month_percentage(now)
+    month_percentage = self.get_year_percentage()
 
     to_print = [now.strftime("%d/%m/%Y %H:%M"), day_percentage, month_percentage, year_percentage]
     
