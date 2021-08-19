@@ -8,9 +8,9 @@ class Currency:
     try:
       btc = self.get_btc()
       eth = self.get_eth()
-      usd_euro = self.get_usd_euro
+      usd_euro = self.get_usd_euro()
 
-      currencies = [btc,eth, usd_euro[0], usd_euro[1]]
+      currencies = [btc,eth] + usd_euro
 
       print(currencies)
       return currencies
