@@ -10,7 +10,7 @@ class Currency:
       eth = self.get_eth()
       usd_euro = self.get_usd_euro
 
-      currencies = [btc,eth] + usd_euro
+      currencies = [btc,eth, usd_euro[0], usd_euro[1]]
 
       print(currencies)
       return currencies
