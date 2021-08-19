@@ -1,7 +1,7 @@
 
 import requests
-from string import maketrans
 
+maketrans = str.maketrans
 
 class Currency:
 
