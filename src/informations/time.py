@@ -1,4 +1,3 @@
-from _typeshed import Self
 import calendar
 from datetime import datetime, date, time
 from helpers.lcd import lcd_write
