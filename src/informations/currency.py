@@ -1,5 +1,6 @@
 
 import requests
+from string import maketrans
 
 
 class Currency:
@@ -8,7 +9,7 @@ class Currency:
     try:
       btc = self.get_btc()
       eth = self.get_eth()
-      usd_euro = self.get_usd_euro()
+      usd_euro = self.get_usd_euro
 
       currencies = [btc,eth] + usd_euro
 
@@ -24,7 +25,8 @@ class Currency:
 
       if response_btc.status_code == 200:
         data_btc = response_btc.json()
-        return data_btc["bpi"]["USD"]["rate"]
+        btc = data_btc["bpi"]["USD"]["rate"]
+        return f"BTC - {btc.translate(maketrans(',.', '.,'))}"
 
       return "BTC - Not found"
     except Exception:
@@ -36,7 +38,8 @@ class Currency:
 
       if response_eth.status_code == 200:
         data_eth = response_eth.json()
-        return data_eth["result"]["ethusd"]
+        eth = data_eth["result"]["ethusd"]
+        return f"ETH - {eth.translate(maketrans(',.', '.,'))}"
 
       return "ETH - Not found"
     except Exception:
@@ -50,7 +53,7 @@ class Currency:
         data_usd_euro = response.json()
         usd = data_usd_euro["USDBRL"]["ask"]
         euro = data_usd_euro["EURBRL"]["ask"]
-        return [f"USD - ${usd}", f"EUR - ${euro}"]
+        return [f"USD - R${usd.translate(maketrans(',.', '.,'))}", f"EUR - R${euro.translate(maketrans(',.', '.,'))}"]
 
       return ["USD - Not found", "EUR - Not found"]
     except Exception:
