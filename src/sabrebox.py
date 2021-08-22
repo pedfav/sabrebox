@@ -15,8 +15,9 @@ from helpers.lcd import lcd_write
 gpio.setwarnings(False)
 gpio.setmode(gpio.BOARD)
 gpio.setup(22, gpio.IN, pull_up_down = gpio.PUD_DOWN)
-gpio.setup(12, gpio.OUT)
-gpio.setup(11, gpio.OUT)
+gpio.setup(23, gpio.IN, pull_up_down = gpio.PUD_DOWN)
+gpio.setup(24, gpio.IN, pull_up_down = gpio.PUD_DOWN)
+gpio.setup(25, gpio.OUT)
 
 
 class Informations(Enum):
@@ -29,10 +30,10 @@ class Informations(Enum):
 
 def print_time(number_of_times):
   for x in range(number_of_times):
-    if(gpio.input(22) == 1):
-      gpio.output(12,gpio.HIGH)
+    if((gpio.input(22) == 1) or (gpio.input(23) == 1) or (gpio.input(24) == 1)):
+      gpio.output(25,gpio.HIGH)
       Ip().get(3)
-      gpio.output(12,gpio.LOW)
+      gpio.output(25,gpio.LOW)
     time.sleep(0.5)
 
 
