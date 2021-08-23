@@ -24,7 +24,7 @@ class Currency:
 
       if response_btc.status_code == 200:
         data_btc = response_btc.json()
-        btc = data_btc["bpi"]["USD"]["rate"]
+        btc = data_btc["bpi"]["USD"]["rate"].replace(",","")
         return f"BTC - ${self.round_two(btc)}"
 
       return "BTC - Not found"
