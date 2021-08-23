@@ -16,7 +16,9 @@ from spotify.spotify_manager import play_pause, next_song
 gpio.setwarnings(False)
 gpio.setmode(gpio.BOARD)
 gpio.setup(15, gpio.IN, pull_up_down = gpio.PUD_DOWN)
+
 gpio.setup(16, gpio.IN, pull_up_down = gpio.PUD_DOWN)
+#IP
 gpio.setup(18, gpio.IN, pull_up_down = gpio.PUD_DOWN)
 gpio.setup(22, gpio.OUT)
 
@@ -31,20 +33,20 @@ class Informations(Enum):
 
 def print_time(number_of_times):
   for x in range(number_of_times):
-    if(gpio.input(15) == 1):
+    if(gpio.input(18) == 1):
       gpio.output(22,gpio.HIGH)
       Ip().get(3)
       gpio.output(22,gpio.LOW)
 
-    if(gpio.input(16) == 1):
+    if(gpio.input(15) == 1):
       next_song()
       return
 
-    if(gpio.input(18) == 1):
+    if(gpio.input(16) == 1):
       play_pause()
       return
       
-    time.sleep(0.2)
+    time.sleep(0.05)
 
 
 while True:
@@ -53,4 +55,4 @@ while True:
 
     if len(lines) > 0:
       lcd_write(lines)
-      print_time(15)
+      print_time(60)
