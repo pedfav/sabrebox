@@ -36,11 +36,11 @@ def print_time(number_of_times):
       Ip().get(3)
       gpio.output(22,gpio.LOW)
 
-    if(gpio.ipnut(16) == 1):
+    if(gpio.input(16) == 1):
       next_song()
       return
 
-    if(gpio.ipnut(18) == 1):
+    if(gpio.input(18) == 1):
       play_pause()
       return
       
