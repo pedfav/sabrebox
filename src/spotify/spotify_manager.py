@@ -9,6 +9,7 @@ URL_NEXT_SONG = 'https://api.spotify.com/v1/me/player/next'
 
 def play_pause():
   try:
+    print('play/pause')
     response = requests.request("PUT", URL_PLAY, 
     headers = {
       'Accept': 'application/json',
@@ -32,6 +33,7 @@ def play_pause():
 
 def next_song():
   try:
+    print('next song')
     response = requests.request("POST", URL_NEXT_SONG, headers= {
       'Accept': 'application/json',
       'Content-Type': 'application/json',
