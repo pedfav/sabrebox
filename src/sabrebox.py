@@ -15,8 +15,9 @@ from spotify.spotify_manager import play_pause, next_song
 
 gpio.setwarnings(False)
 gpio.setmode(gpio.BOARD)
+#Next song
 gpio.setup(15, gpio.IN, pull_up_down = gpio.PUD_DOWN)
-
+#Play/pause
 gpio.setup(16, gpio.IN, pull_up_down = gpio.PUD_DOWN)
 #IP
 gpio.setup(18, gpio.IN, pull_up_down = gpio.PUD_DOWN)
