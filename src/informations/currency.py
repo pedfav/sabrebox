@@ -28,7 +28,8 @@ class Currency:
         return f"BTC - ${self.round(btc)}"
 
       return "BTC - Not found"
-    except Exception:
+    except Exception as e:
+      print(e)
       return "BTC - Not found"
   
   def get_eth(self):
