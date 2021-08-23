@@ -25,7 +25,7 @@ class Currency:
       if response_btc.status_code == 200:
         data_btc = response_btc.json()
         btc = data_btc["bpi"]["USD"]["rate"]
-        return f"BTC - ${self.round(btc)}"
+        return f"BTC - ${self.round_two(btc)}"
 
       return "BTC - Not found"
     except Exception as e:
@@ -39,7 +39,7 @@ class Currency:
       if response_eth.status_code == 200:
         data_eth = response_eth.json()
         eth = data_eth["result"]["ethusd"]
-        return f"ETH - ${self.round(eth)}"
+        return f"ETH - ${self.round_two(eth)}"
 
       return "ETH - Not found"
     except Exception:
@@ -53,7 +53,7 @@ class Currency:
         data_usd_euro = response.json()
         usd = data_usd_euro["USDBRL"]["ask"]
         euro = data_usd_euro["EURBRL"]["ask"]
-        return [f"USD - R${self.round(usd)}", f"EUR - R${self.round(euro)}"]
+        return [f"USD - R${self.round_two(usd)}", f"EUR - R${self.round_two(euro)}"]
 
       return ["USD - Not found", "EUR - Not found"]
     except Exception:
