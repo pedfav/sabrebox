@@ -40,7 +40,7 @@ def print_time(number_of_times):
       next_song()
       return
 
-    if(gpio.ipnut(16) == 1):
+    if(gpio.ipnut(18) == 1):
       play_pause()
       return
       
