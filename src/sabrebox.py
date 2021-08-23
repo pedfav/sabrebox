@@ -10,6 +10,7 @@ from informations.time import Time
 from informations.weather_sa import WeatherSa
 from informations.spotify import Spotify
 from helpers.lcd import lcd_write
+from spotify.spotify_manager import play_pause, next_song
 
 
 gpio.setwarnings(False)
@@ -30,11 +31,20 @@ class Informations(Enum):
 
 def print_time(number_of_times):
   for x in range(number_of_times):
-    if((gpio.input(15) == 1) or (gpio.input(16) == 1) or (gpio.input(18) == 1)):
+    if(gpio.input(15) == 1):
       gpio.output(22,gpio.HIGH)
       Ip().get(3)
       gpio.output(22,gpio.LOW)
-    time.sleep(0.5)
+
+    if(gpio.ipnut(16) == 1):
+      next_song()
+      return
+
+    if(gpio.ipnut(16) == 1):
+      play_pause()
+      return
+      
+    time.sleep(0.2)
 
 
 while True:
@@ -43,4 +53,4 @@ while True:
 
     if len(lines) > 0:
       lcd_write(lines)
-      print_time(6)
+      print_time(15)
