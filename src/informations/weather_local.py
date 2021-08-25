@@ -12,7 +12,7 @@ class Weather:
     try:
       humidity, temperature = Adafruit_DHT.read_retry(DHT_SENSOR, DHT_PIN)
 
-      print(f"Temperature-round(temperature, 2)} - Humidity-{round(humidity, 2)}")
+      print(f"Temperature-{round(temperature, 2)} - Humidity-{round(humidity, 2)}")
       return ["DHT22", f"Temperature - {round(temperature, 2)}C", f"Humidity    - {round(humidity, 2)}%"]
      
     except Exception as e:
