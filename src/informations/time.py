@@ -19,18 +19,18 @@ class Time:
     day_start = datetime.combine(date.today(), time())
     duration_day = now - day_start
     day_percentage = round((duration_day.total_seconds() * 100) / 86400, 2)
-    return 'Day   = {}%'.format(day_percentage)
+    return 'Day   - {}%'.format(day_percentage)
 
   def get_month_percentage(self, now):
     today = date.today()
     month_start = date(date.today().year, date.today().month, 1)
     duration_month = today - month_start
     month_percentage = round(((duration_month.days + 1) * 100) / calendar.monthrange(now.year, now.month)[1], 2)
-    return 'Month = {}%'.format(month_percentage)
+    return 'Month - {}%'.format(month_percentage)
 
   def get_year_percentage(self):
     today = date.today()
     year_start = date(date.today().year, 1, 1)
     duration_year = today - year_start
     year_percentage = round(((duration_year.days + 1) * 100) / 365, 2)
-    return 'Year  = {}%'.format(year_percentage)
+    return 'Year  - {}%'.format(year_percentage)
